@@ -1,0 +1,9 @@
+node_modules/
+out/
+*.vsix
+.DS_Store
+
+# IMPORTANT: metal-lsp/wasm/* IS committed in this repo. It's the compiled
+# libmsl artifact that powers the extension — the upstream C source lives in
+# a separate (currently private) repository, so the binary is the delivery
+# vehicle here. See README.md for details.

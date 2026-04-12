@@ -1,0 +1,12 @@
+.vscode/**
+.vscode-test/**
+src/**
+tsconfig.json
+out/**/*.map
+out/**/*.ts
+node_modules/**
+.gitignore
+.eslintrc.*
+esbuild.config.*
+**/*.vsix
+# README is kept; everything else development-only goes away.

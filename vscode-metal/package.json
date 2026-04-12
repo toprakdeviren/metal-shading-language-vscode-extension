@@ -1,0 +1,123 @@
+{
+  "name": "vscode-metal",
+  "displayName": "Metal Shading Language",
+  "description": "Syntax highlighting, diagnostics, and live WGSL preview for .metal shader files — powered by libmsl.",
+  "version": "0.1.0",
+  "private": true,
+  "publisher": "toprakdeviren",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toprakdeviren/metal-shading-language-vscode-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/toprakdeviren/metal-shading-language-vscode-extension/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "metal",
+        "aliases": ["Metal", "MSL", "Metal Shading Language"],
+        "extensions": [".metal", ".msl"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "metal",
+        "scopeName": "source.metal",
+        "path": "./syntaxes/metal.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "metal.showWGSL",
+        "title": "Metal: Show Transpiled WGSL",
+        "category": "Metal",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "metal.showPreview",
+        "title": "Metal: Open Live Shader Preview",
+        "category": "Metal",
+        "icon": "$(pulse)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == metal",
+          "command": "metal.showPreview",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceLangId == metal",
+          "command": "metal.showWGSL",
+          "group": "navigation@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceLangId == metal",
+          "command": "metal.showPreview",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceLangId == metal",
+          "command": "metal.showWGSL",
+          "group": "navigation@2"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .metal || resourceExtname == .msl",
+          "command": "metal.showPreview",
+          "group": "navigation@9"
+        },
+        {
+          "when": "resourceExtname == .metal || resourceExtname == .msl",
+          "command": "metal.showWGSL",
+          "group": "navigation@10"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "metal.showWGSL",
+        "key": "ctrl+k v",
+        "mac": "cmd+k v",
+        "when": "editorLangId == metal"
+      },
+      {
+        "command": "metal.showPreview",
+        "key": "ctrl+k p",
+        "mac": "cmd+k p",
+        "when": "editorLangId == metal"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -p . -w",
+    "bundle:extension": "esbuild src/extension.ts --bundle --platform=node --target=node18 --format=cjs --external:vscode --outfile=out/extension.js",
+    "bundle:server": "esbuild ../metal-lsp/src/server.ts --bundle --platform=node --target=node18 --format=cjs --outfile=out/server.js",
+    "bundle:wasm": "mkdir -p out/wasm && cp ../metal-lsp/wasm/msl_compiler.js ../metal-lsp/wasm/msl_compiler.wasm out/wasm/",
+    "bundle": "npm run bundle:extension && npm run bundle:server && npm run bundle:wasm",
+    "package": "npm run bundle && vsce package --no-dependencies --out metal-0.1.0.vsix"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0"
+  }
+}

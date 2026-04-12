@@ -1,0 +1,15 @@
+{
+  "name": "metal-lsp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Language Server Protocol implementation for Metal Shading Language, backed by the libmsl WASM build.",
+  "main": "out/server.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -p . -w"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.11"
+  }
+}
