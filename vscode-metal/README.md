@@ -6,6 +6,8 @@ front-end. Semantic highlighting and diagnostics come straight from the
 same lexer and parser that produce the WGSL output — no regex
 approximations, no guesswork.
 
+![Live preview demo](https://raw.githubusercontent.com/toprakdeviren/metal-shading-language-vscode-extension/main/images/demo.gif)
+
 ## What's stable
 
 These are the core features the extension exists for, and what most of
@@ -68,7 +70,7 @@ specification, so:
 The preview's scope will grow (textures, compute visualization, scene
 config) as the underlying compiler matures.
 
-Issues and suggestions: <https://github.com/miniswift/metal/issues>
+Issues and suggestions: <https://github.com/toprakdeviren/metal-shading-language-vscode-extension/issues>
 
 ## Commands
 

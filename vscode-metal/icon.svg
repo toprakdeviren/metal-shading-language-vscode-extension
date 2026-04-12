@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="56" ry="56" fill="#0a0a0a"/>
+
+  <text x="128" y="190"
+        text-anchor="middle"
+        font-family="'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="210"
+        font-weight="800"
+        fill="#f59e0b">M</text>
+</svg>

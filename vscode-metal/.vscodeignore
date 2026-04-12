@@ -1,12 +1,5 @@
-.vscode/**
-.vscode-test/**
+icon.svg
 src/**
 tsconfig.json
-out/**/*.map
-out/**/*.ts
-node_modules/**
-.gitignore
-.eslintrc.*
-esbuild.config.*
-**/*.vsix
-# README is kept; everything else development-only goes away.
+**/*.map
+**/.DS_Store
