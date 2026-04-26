@@ -35,29 +35,23 @@ and diagnostic streams. You'll find it at
 **committed to this repo** — clone + build works offline, no download
 step, no native toolchain required.
 
-### Why is the C source not in this repository?
+### Where does the C source live?
 
-The `libmsl` compiler is an active, evolving project that is still
-closing the last few gaps against the MSL 3.2 / Metal 4 specification.
-I'm choosing to keep its source in a private repository for now so I
-can stabilize the parser API, the diagnostic format, and the
-lowering strategy before committing to them publicly. Putting the
-editor tooling in the open now was the point: it's what most people
-actually need day-to-day, and it's independently useful even while
-the compiler iterates underneath.
+In its own public repository:
+**<https://github.com/toprakdeviren/metal-to-wgsl>**
 
-When the C side reaches a version I'm comfortable maintaining as a
-public project, the source will be open-sourced under a permissive
-license and this README will link to it. Until then the WASM binary
-here is effectively the authoritative interface: it is built from
-the same source used by internal tools, it is versioned alongside the
-extension, and every update to it lands in this repo's git history so
-you can audit when the compiler behavior changed.
+A standalone C library — MSL → WGSL transpiler plus a token stream
+API for editors and structured LSP-compatible diagnostics. Both this
+extension and any other tool can link against it. The WASM binary in
+this repo is built from that source and committed alongside the
+extension so the editor experience works without an emscripten
+toolchain. Every update to the binary lands in this repo's git
+history, so you can audit when the compiler behavior changed.
 
 If you hit a bug that looks like it comes from the compiler — a parse
 error on valid MSL, wrong WGSL output, a preview pipeline rejection —
-please file it against this repository. I'll triage it on the
-compiler side and land a new WASM build here. Issue tracker:
+file it against either repository; I triage both. The extension
+tracker:
 <https://github.com/toprakdeviren/metal-shading-language-vscode-extension/issues>
 
 ## Installation (end users)
@@ -66,7 +60,7 @@ Grab the latest `.vsix` from the Releases page (or build one yourself,
 see below) and install it:
 
 ```bash
-code --install-extension metal-0.1.0.vsix
+code --install-extension metal-1.0.0.vsix
 ```
 
 Then reload the window. Open any `.metal` / `.msl` file and:
@@ -87,7 +81,7 @@ Requires Node 18+ and npm 9+ (for workspaces).
 git clone https://github.com/toprakdeviren/metal-shading-language-vscode-extension
 cd metal-shading-language-vscode-extension
 npm install
-npm run package    # produces vscode-metal/metal-0.1.0.vsix
+npm run package    # produces vscode-metal/metal-1.0.0.vsix
 ```
 
 Development loop:

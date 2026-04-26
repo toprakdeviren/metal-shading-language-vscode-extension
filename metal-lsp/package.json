@@ -1,6 +1,6 @@
 {
   "name": "metal-lsp",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Language Server Protocol implementation for Metal Shading Language, backed by the libmsl WASM build.",
   "main": "out/server.js",

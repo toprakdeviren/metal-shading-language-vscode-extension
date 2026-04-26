@@ -45,7 +45,7 @@ connection.onInitialize((): InitializeResult => ({
       full: true,
     },
   },
-  serverInfo: { name: 'metal-lsp', version: '0.1.0' },
+  serverInfo: { name: 'metal-lsp', version: '1.0.0' },
 }));
 
 // ── Diagnostics ─────────────────────────────────────────────────────────────

@@ -2,7 +2,7 @@
   "name": "vscode-metal",
   "displayName": "Metal Shading Language",
   "description": "Syntax highlighting, diagnostics, and live WGSL preview for .metal shader files — powered by libmsl.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "publisher": "toprakdeviren",
   "repository": {
@@ -113,7 +113,7 @@
     "bundle:server": "esbuild ../metal-lsp/src/server.ts --bundle --platform=node --target=node18 --format=cjs --outfile=out/server.js",
     "bundle:wasm": "mkdir -p out/wasm && cp ../metal-lsp/wasm/msl_compiler.js ../metal-lsp/wasm/msl_compiler.wasm out/wasm/",
     "bundle": "npm run bundle:extension && npm run bundle:server && npm run bundle:wasm",
-    "package": "npm run bundle && vsce package --no-dependencies --out metal-0.1.0.vsix"
+    "package": "npm run bundle && vsce package --no-dependencies --out metal-1.0.0.vsix"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1"

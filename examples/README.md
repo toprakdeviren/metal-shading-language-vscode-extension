@@ -22,9 +22,9 @@ Each file is a complete, self-contained `.metal` translation unit that:
 
 ## Running them
 
-1. Install the extension from `editor/vscode-metal/metal-0.1.0.vsix`:
+1. Install the extension from `editor/vscode-metal/metal-1.0.0.vsix`:
    ```bash
-   code --install-extension editor/vscode-metal/metal-0.1.0.vsix --force
+   code --install-extension editor/vscode-metal/metal-1.0.0.vsix --force
    ```
 2. Reload the VSCode window (`Developer: Reload Window`).
 3. Open any file in this directory.

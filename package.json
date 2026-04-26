@@ -1,6 +1,6 @@
 {
   "name": "metal-shading-language-vscode-extension",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "VSCode extension + LSP server for Apple Metal Shading Language (.metal / .msl) files. The extension ships a WebAssembly build of libmsl for parsing, diagnostics, and MSL→WGSL transpilation.",
   "repository": {
